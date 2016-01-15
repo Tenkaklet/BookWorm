@@ -6,4 +6,16 @@ header {
   header form {
     text-align: center; }
 
+#bookShowCase {
+  margin: 15vh auto; }
+  #bookShowCase .book-thumb {
+    display: inline-block;
+    list-style: none; }
+    #bookShowCase .book-thumb a img {
+      padding: 15px; }
+    #bookShowCase .book-thumb a .book-sub {
+      padding: 5px 10px;
+      background-color: #cfc9d1;
+      text-align: center; }
+
 /*# sourceMappingURL=main.css.map */

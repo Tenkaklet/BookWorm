@@ -7,3 +7,25 @@ header {
         text-align: center;
     }
 }
+#bookShowCase {
+    margin: 15vh auto;
+    .book-thumb {
+        // width: 25%;
+        display: inline-block;
+        list-style: none;
+        // padding: 10px;
+        a {
+            // padding: 0;
+            img {
+                padding: 15px;
+                // background-color: blue;
+
+            }
+            .book-sub {
+                padding: 5px 10px;
+                background-color: rgb(207, 201, 209);
+                text-align: center;
+            }
+        }
+    }
+}

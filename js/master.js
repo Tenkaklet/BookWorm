@@ -1,4 +1,4 @@
-var app = angular.module('BookWorm', ['ngRoute', 'firebase']);
+var app = angular.module('BookWorm', ['ngRoute', 'firebase', 'jkuri.gallery']);
 app.config(function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'pages/home.html',
