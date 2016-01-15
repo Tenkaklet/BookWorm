@@ -1,4 +1,9 @@
 body {
   background-color: #3c3b3e; }
 
+header {
+  color: #FFF; }
+  header form {
+    text-align: center; }
+
 /*# sourceMappingURL=main.css.map */

@@ -1,3 +1,7 @@
-<div class="container">
-    <h1>{{ msg}}</h1>
-</div>
+<header class="container">
+    <h1 class="text-center">BookWorm</h1>
+    <form class="form-inline" ng-submit="bookSearch()">
+        <input type="text" class="form-control" ng-model="bookTitle">
+        <a class="btn btn-default" href="#/results">Search</a>
+    </form>
+</header>
