@@ -8,8 +8,8 @@
 <section class="container-fluid" id="bookShowCase">
     <h1 class="text-center">Featured Books <small>{{featuredBook}}</small></h1>
     <ul class="book-thumb" ng-repeat="book in books" id="bookList">
-        <a href="#" class="">
-            <li class="">
+        <a ng-href="http://books.google.se/books/reader?id={{book.id}}&hl=&printsec=frontcover&output=reader&source=gbs_api" target="_blank" class="thumbnail">
+            <li class="center-block">
                 <img ng-src="{{book.volumeInfo.imageLinks.thumbnail}}" class="img-responsive center-block" alt="{{book.volumeInfo.title}}">
             </li>
         </a>

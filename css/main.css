@@ -13,9 +13,7 @@ header {
     list-style: none; }
     #bookShowCase .book-thumb a img {
       padding: 15px; }
-    #bookShowCase .book-thumb a .book-sub {
-      padding: 5px 10px;
-      background-color: #cfc9d1;
+    #bookShowCase .book-thumb a .caption {
       text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
