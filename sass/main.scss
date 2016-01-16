@@ -28,3 +28,31 @@ header {
         }
     }
 }
+#results {
+    #result-Search {
+        margin-top: 20px;
+        form {
+            margin: 0 auto;
+            width: 30vw;
+            .btn-search-top {
+                height: 40px;
+                border: 1px solid #FFF;
+                color: #FFF;
+                // font-size: 2em;
+            }
+        }
+    }
+
+    .card {
+        margin: 10px 0;
+        img {
+            border-radius: 45px !important;
+            width: 224px;
+            height: 278px;
+        }
+        a {
+            color: #FFF;
+        }
+    }
+
+}

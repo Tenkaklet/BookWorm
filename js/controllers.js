@@ -1,12 +1,12 @@
 var app = angular.module('BookWorm')
 
 .controller('HomeController', ['$scope', '$http','$timeout', '$location','getBook', function ($scope, $http, $timeout, $location, getBook) {
-    $scope.featuredBook = 'philosphy';
+    $scope.featuredBook = 'Anarchism';
     getBook.findBook($scope.featuredBook)
     .then(function (response) {
         $scope.books = response.items;
         console.log($scope.books);
-        
+
 
 
     });
@@ -22,7 +22,13 @@ var app = angular.module('BookWorm')
     };
 }])
 .controller('ResultsController', ['$scope', '$http','$timeout', '$location','getBook','$routeParams', function ($scope, $http, $timeout, $location, getBook, $routeParams) {
-
+    console.log($routeParams.Results);
+    getBook.findBook($routeParams.Results)
+    .then(function (response) {
+        var bookData = response.items;
+        $scope.books = bookData;
+        console.log(bookData);
+    });
 }])
 
 .controller('specificBookController', ['$scope', '$http','$timeout', '$location','getBook','$routeParams',function ($scope, $http, $timeout, $location, getBook, $routeParams) {

@@ -16,4 +16,22 @@ header {
     #bookShowCase .book-thumb a .caption {
       text-align: center; }
 
+#results #result-Search {
+  margin-top: 20px; }
+  #results #result-Search form {
+    margin: 0 auto;
+    width: 30vw; }
+    #results #result-Search form .btn-search-top {
+      height: 40px;
+      border: 1px solid #FFF;
+      color: #FFF; }
+#results .card {
+  margin: 10px 0; }
+  #results .card img {
+    border-radius: 45px !important;
+    width: 224px;
+    height: 278px; }
+  #results .card a {
+    color: #FFF; }
+
 /*# sourceMappingURL=main.css.map */
