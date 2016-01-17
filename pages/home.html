@@ -2,7 +2,7 @@
     <h1 class="text-center">BookWorm</h1>
     <form class="form-inline" ng-submit="bookSearch()">
         <input type="text" class="form-control" ng-model="bookTitle">
-        <a class="btn btn-default" href="#/results">Search</a>
+        <button class="btn btn-default" href="#/results" ng-disabled="!bookTitle">Search</button>
     </form>
 </header>
 <section class="container-fluid" id="bookShowCase">

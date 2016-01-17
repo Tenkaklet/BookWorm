@@ -13,4 +13,19 @@ var app = angular.module('BookWorm')
             return find(book);
         }
     };
+}])
+.factory('getID', ['$http', function ($http) {
+    var apiKey = 'AIzaSyAxW_sXDSFrPoNNBdG07dcCbUHCMi5TG8Q';
+    var Id = function (id) {
+        var IdURL = 'https://www.googleapis.com/books/v1/volumes/' + id +'?key=' + apiKey;
+        return $http.get(IdURL)
+        .then(function (response) {
+            return response.data;
+        });
+    };
+    return {
+        findbookId: function (id) {
+            return Id(id);
+        }
+    };
 }]);

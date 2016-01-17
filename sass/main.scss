@@ -1,14 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One|Varela+Round);
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
 body {
-    background-color: #3c3b3e;
+    // background-color: rgb(224, 183, 91);
+    background-color: #FFF;
+    background: url('../images/pattern.png');
+    // background-size: cover;
+    font-family: 'Varela Round', sans-serif;
 }
 header {
-    color: #FFF;
+    // color: #FFF;
     form {
         text-align: center;
     }
 }
 #bookShowCase {
-    margin: 15vh auto;
+    margin: 0 auto;
     .book-thumb {
         // width: 25%;
         display: inline-block;
@@ -21,10 +33,6 @@ header {
                 // background-color: blue;
 
             }
-            .caption {
-                // background-color: rgb(207, 201, 209);
-                text-align: center;
-            }
         }
     }
 }
@@ -35,9 +43,8 @@ header {
             margin: 0 auto;
             width: 30vw;
             .btn-search-top {
-                height: 40px;
-                border: 1px solid #FFF;
-                color: #FFF;
+                border: 1px solid #000;
+                color: #000;
                 // font-size: 2em;
             }
         }
@@ -51,7 +58,7 @@ header {
             height: 278px;
         }
         a {
-            color: #FFF;
+            color: #000;
         }
     }
 

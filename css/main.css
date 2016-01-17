@@ -1,20 +1,23 @@
-body {
-  background-color: #3c3b3e; }
+@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One|Varela+Round);
+html, body {
+  width: 100%;
+  height: 100%; }
 
-header {
-  color: #FFF; }
-  header form {
-    text-align: center; }
+body {
+  background-color: #FFF;
+  background: url("../images/pattern.png");
+  font-family: 'Varela Round', sans-serif; }
+
+header form {
+  text-align: center; }
 
 #bookShowCase {
-  margin: 15vh auto; }
+  margin: 0 auto; }
   #bookShowCase .book-thumb {
     display: inline-block;
     list-style: none; }
     #bookShowCase .book-thumb a img {
       padding: 15px; }
-    #bookShowCase .book-thumb a .caption {
-      text-align: center; }
 
 #results #result-Search {
   margin-top: 20px; }
@@ -22,9 +25,8 @@ header {
     margin: 0 auto;
     width: 30vw; }
     #results #result-Search form .btn-search-top {
-      height: 40px;
-      border: 1px solid #FFF;
-      color: #FFF; }
+      border: 1px solid #000;
+      color: #000; }
 #results .card {
   margin: 10px 0; }
   #results .card img {
@@ -32,6 +34,6 @@ header {
     width: 224px;
     height: 278px; }
   #results .card a {
-    color: #FFF; }
+    color: #000; }
 
 /*# sourceMappingURL=main.css.map */
