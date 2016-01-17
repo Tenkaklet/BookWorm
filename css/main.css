@@ -27,13 +27,7 @@ header form {
     #results #result-Search form .btn-search-top {
       border: 1px solid #000;
       color: #000; }
-#results .card {
+#results .library {
   margin: 10px 0; }
-  #results .card img {
-    border-radius: 45px !important;
-    width: 224px;
-    height: 278px; }
-  #results .card a {
-    color: #000; }
 
 /*# sourceMappingURL=main.css.map */
