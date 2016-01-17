@@ -4,31 +4,23 @@
             <input type="text" class="form-control" ng-model="bookTitle">
             <button type="submit" class="btn btn-default" id="searchButton" ng-click="submit()" ng-disabled="!bookTitle">Submit</button>
         </form>
+        <p class="help-block text-center">
+            We found: <strong>{{numOfBooks}}</strong> Books
+        </p>
     </section>
     <div class="container">
         <div class="row">
-            <!-- <div class="col-lg-9 col-lg-offset-2">
-                <div class="card" ng-repeat="book in books">
-                    <div class="row">
-                        <img ng-src="{{book.volumeInfo.imageLinks.thumbnail}}" class="poster col-md-5 img-responsive pull-left" alt="" />
-                        <div class="movie-description col-md-7">
-                            <h4>{{book.volumeInfo.title}} <small>{{book.volumeInfo.categories}}</small></h4>
-                            <a href="#/specificBook/{{book.volumeInfo.title}}" class="moreInfo">More Info</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <div class="col-lg-8 col-lg-offset-4">
+            <div class="col-md-6 col-md-offset-3">
                 <div class="media library" ng-repeat="book in books">
                     <div class="media-left">
                         <img class="media-object" ng-src="{{book.volumeInfo.imageLinks.thumbnail}}" alt="...">
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading">{{book.volumeInfo.title}}</h4>
+                        <h4 class="media-heading">{{book.volumeInfo.title}} <small>{{book.volumeInfo.categories | noHTML}}</small></h4>
                         <p><small>By:</small> {{book.volumeInfo.authors | noHTML}}</p>
                         <p><em>{{book.volumeInfo.publishedDate}}</em></p>
-                        <p>{{book.searchInfo.textSnippet}}</p>
-                        <a href="#/specificBook/{{book.volumeInfo.title}}" class="moreInfo">More Info</a>
+                        <p></p>
+                        <a href="#/specificBook/{{book.id}}" class="moreInfo">More Info</a>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,31 @@
-<div class="container">
-    <h1>{{bookName}}</h1>
-</div>
+<section class="container" id="specificBook">
+    <header class="page-header">
+        <h4>{{bookName}}</h4>
+        <p><small>{{author | noHTML}}</small></p>
+    </header>
+    <article class="bookThing row">
+        <div class="col-md-6">
+            <img ng-src="{{bookIMG}}" class="center-block img-responsive" alt="{{bookName}}" />
+        </div>
+        <div class="col-md-6">
+            <div class="" id="generalInfo">
+                <div class="genDescript">
+                    <!-- <p class="small"><strong>{{categories | noHTML}}</strong></p> -->
+                    <ul class="list-inline">
+                        <li ng-repeat="cat in categories"><strong>{{cat}}</strong></li>
+                    </ul>
+                    <p class="">{{description}}</p>
+                </div>
+            </div>
+
+            <div class="" id="specOfBook">
+                <a class="showMorebtn" ng-click="specificBookData = !specificBookData">{{Specifics}}</a>
+                <div class="specificBookData" ng-show="specificBookData">
+                    <p><strong>ISBN: </strong> {{ISBN}}</p>
+                    <p class="small">{{bookType}}, {{pages}} pages</p>
+                    <p class="small">{{pubDate | date: 'mediumDate'}}</p>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

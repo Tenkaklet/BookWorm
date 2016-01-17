@@ -6,6 +6,15 @@ html, body {
     height: 100%;
 }
 
+a {
+    color: #999;
+    transition: color 0.1s ease-in-out;
+    &:hover {
+        color: #000;
+        text-decoration: none;
+    }
+}
+
 body {
     // background-color: rgb(224, 183, 91);
     background-color: #FFF;
@@ -38,18 +47,51 @@ header {
 }
 #results {
     #result-Search {
+        display: flex;
+        flex-direction: column;
         margin-top: 20px;
         form {
-            margin: 0 auto;
-            width: 30vw;
+            align-self: center;
             .btn-search-top {
                 border: 1px solid #000;
                 color: #000;
-                // font-size: 2em;
+            }
+        }
+        p {
+            strong {
+                color: #000;
             }
         }
     }
     .library {
         margin: 10px 0;
+    }
+}
+#specificBook {
+    header {
+        text-align: center;
+        .page-header {
+            text-align: left;
+        }
+    }
+    #generalInfo {
+        .genDescript {
+            ul {
+                li {
+                    display: block;
+                }
+            }
+        }
+    }
+    #specOfBook {
+        text-align: center;
+        .showMorebtn {
+            border: 1px solid #000;
+            padding: 6px;
+            border-radius: 3px;
+        }
+        .specificBookData {
+            text-align: left;
+        }
     }
 }

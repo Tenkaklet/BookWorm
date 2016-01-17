@@ -16,7 +16,8 @@ var app = angular.module('BookWorm')
     getBook.findBook($scope.featuredBook)
     .then(function (response) {
         $scope.books = response.items;
-        console.log($scope.books);
+        // console.log($scope.books);
+
     });
     $timeout(function () {
         $scope.bookShowCase = true;
@@ -39,25 +40,32 @@ var app = angular.module('BookWorm')
     getBook.findBook($routeParams.Results)
     .then(function (response) {
         var bookData = response.items;
+        $scope.numOfBooks = bookData.length;
         $scope.books = bookData;
-        angular.forEach($scope.books, function (item) {
-            var bookId = item.id;
-            // console.warn(bookId);
-            getID.findbookId(bookId)
-            .then(function (response) {
-                // console.log(response);
-                bookSpecificData = response;
-                // $scope.overview = bookSpecificData.volumeInfo.subtitle;
-            });
-        });
     });
 }])
 
-.controller('specificBookController', ['$scope', '$http','$timeout', '$location','getBook','$routeParams',function ($scope, $http, $timeout, $location, getBook, $routeParams) {
-    console.log($routeParams.book);
-    getBook.findBook($routeParams.book)
+.controller('specificBookController', ['$scope', '$http','$timeout', '$location','getBook','$routeParams','getID', function ($scope, $http, $timeout, $location, getBook, $routeParams, getID) {
+    getID.findbookId($routeParams.bookId)
     .then(function (response) {
+        console.debug(response);
+        var specBook = response;
+        $scope.bookName = specBook.volumeInfo.title;
+        $scope.author = specBook.volumeInfo.authors;
+        $scope.bookIMG = specBook.volumeInfo.imageLinks.small;
+        $scope.description = specBook.volumeInfo.description;
+        $scope.bookType = specBook.volumeInfo.printType;
+        $scope.pages = specBook.volumeInfo.pageCount;
+        $scope.pubDate = specBook.volumeInfo.publishedDate;
+        $scope.categories = specBook.volumeInfo.categories;
+        $scope.ISBN = specBook.volumeInfo.industryIdentifiers[0].identifier;
+        $scope.Specifics = 'Show More';
 
+        $scope.showSpecData = function () {
+            console.log('yolo');
+            $scope.specificBookData = true;
+            $scope.Specifics = 'Show Less';
+        };
     });
 }])
 
