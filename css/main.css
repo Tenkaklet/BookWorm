@@ -12,7 +12,6 @@ a {
 
 body {
   background-color: #FFF;
-  background: url("../images/pattern.png");
   font-family: 'Varela Round', sans-serif; }
 
 header form {
@@ -41,7 +40,8 @@ header form {
   margin: 10px 0; }
 
 #specificBook header {
-  text-align: center; }
+  text-align: center;
+  line-height: 0; }
   #specificBook header .page-header {
     text-align: left; }
 #specificBook #generalInfo .genDescript ul li {

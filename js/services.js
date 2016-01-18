@@ -14,6 +14,21 @@ var app = angular.module('BookWorm')
         }
     };
 }])
+.factory('goodReadsISBN', ['$http', function ($http) {
+    var apiKey = 'wRgYbxDStUhOLSIUjCw2Uw';
+    var ISNum = function (ISBN) {
+        var goodReadsURL = 'https://www.goodreads.com/book/review_counts.json?isbns=' + ISBN + '&key=' + apiKey;
+        return $http.get(goodReadsURL)
+        .then(function (response) {
+            return response.data;
+        });
+    };
+    return {
+        getISBN: function (ISBN) {
+            return ISNum(ISBN);
+        }
+    };
+}])
 .factory('getID', ['$http', function ($http) {
     var apiKey = 'AIzaSyD8hW6xnul7nzZvPLBLHgHb5b_d2UzVjaw';
     var Id = function (id) {
@@ -26,6 +41,21 @@ var app = angular.module('BookWorm')
     return {
         findbookId: function (id) {
             return Id(id);
+        }
+    };
+}])
+.factory('goodReadReview', ['$http', function ($http) {
+    var apiKey = 'wRgYbxDStUhOLSIUjCw2Uw';
+    var review = function (id) {
+        var reviewURL = 'https://www.goodreads.com/book/show/' + id +'?format=json&key=' + apiKey;
+        return $http.get(reviewURL)
+        .then(function (response) {
+            return response.data;
+        });
+    };
+    return {
+        getReview: function (id) {
+            return review(id);
         }
     };
 }]);

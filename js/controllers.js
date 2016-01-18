@@ -45,13 +45,14 @@ var app = angular.module('BookWorm')
     });
 }])
 
-.controller('specificBookController', ['$scope', '$http','$timeout', '$location','getBook','$routeParams','getID', function ($scope, $http, $timeout, $location, getBook, $routeParams, getID) {
+.controller('specificBookController', ['$scope', '$http','$timeout', '$location','getBook','$routeParams','getID','goodReadsISBN','goodReadReview' ,function ($scope, $http, $timeout, $location, getBook, $routeParams, getID, goodReadsISBN, goodReadReview) {
     getID.findbookId($routeParams.bookId)
     .then(function (response) {
         console.debug(response);
         var specBook = response;
         $scope.bookName = specBook.volumeInfo.title;
         $scope.author = specBook.volumeInfo.authors;
+        $scope.publisher = specBook.volumeInfo.publisher;
         $scope.bookIMG = specBook.volumeInfo.imageLinks.small;
         $scope.description = specBook.volumeInfo.description;
         $scope.bookType = specBook.volumeInfo.printType;
@@ -62,9 +63,23 @@ var app = angular.module('BookWorm')
         $scope.Specifics = 'Show More';
 
         $scope.showSpecData = function () {
-            console.log('yolo');
             $scope.specificBookData = true;
             $scope.Specifics = 'Show Less';
+            goodReadsISBN.getISBN($scope.ISBN)
+            .then(function (response) {
+                // console.log(response);
+                $scope.id = response.books[0].id;
+                // console.log($scope.id);
+                goodReadReview.getReview($scope.id)
+                .then(function (review) {
+                    document.getElementById('Review').innerHTML += review.reviews_widget;
+                    // console.log(review.reviews_widget);
+                });
+            });
+        };
+        $scope.removeSpecData = function () {
+            $scope.specificBookData = false;
+            $scope.Specifics = 'Show More';
         };
     });
 }])

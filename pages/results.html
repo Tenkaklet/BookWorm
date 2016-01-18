@@ -18,7 +18,7 @@
                     <div class="media-body">
                         <h4 class="media-heading">{{book.volumeInfo.title}} <small>{{book.volumeInfo.categories | noHTML}}</small></h4>
                         <p><small>By:</small> {{book.volumeInfo.authors | noHTML}}</p>
-                        <p><em>{{book.volumeInfo.publishedDate}}</em></p>
+                        <p><em>{{book.volumeInfo.publishedDate | date: 'mediumDate'}}</em></p>
                         <p></p>
                         <a href="#/specificBook/{{book.id}}" class="moreInfo">More Info</a>
                     </div>

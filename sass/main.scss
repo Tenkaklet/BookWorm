@@ -18,8 +18,6 @@ a {
 body {
     // background-color: rgb(224, 183, 91);
     background-color: #FFF;
-    background: url('../images/pattern.png');
-    // background-size: cover;
     font-family: 'Varela Round', sans-serif;
 }
 header {
@@ -70,6 +68,7 @@ header {
 #specificBook {
     header {
         text-align: center;
+        line-height: 0;
         .page-header {
             text-align: left;
         }
