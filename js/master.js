@@ -1,5 +1,7 @@
-var app = angular.module('BookWorm', ['ngRoute', 'firebase', 'jkuri.gallery']);
-app.config(function ($routeProvider) {
+var app = angular.module('BookWorm', ['ngRoute', 'firebase']);
+app.config(function ($routeProvider, $httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $routeProvider.when('/', {
         templateUrl: 'pages/home.html',
         controller: 'HomeController'
