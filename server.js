@@ -13,8 +13,16 @@ var request = require('request');
 var express = require('express');
 var app = express();
 app.use(express.static('public'));
-var goodreads = require('goodreads');
-var gr = new goodreads.client({ 'key': 'wRgYbxDStUhOLSIUjCw2Uw', 'secret': 'snIrd88VBldJdTwaUEPWH3B43HPpMOFx612mY3wsrk' });
+var goodReads = require('simple-goodreads');
+var gr = new goodReads();
+gr.searchBook('Bible', function (err, book) {
+  // book is retrieved
+  console.log(book.id); // 3
+  console.log(book.title); // Harry Potter and the Sorcerer\'s Stone (Harry Potter, #1)
+  console.log(book.author); // J.K. Rowling
+  console.log(book.publication_year); // 1997
+  console.log(book.rating); // 4.40
+});
 
 // var BreweryDb = require('brewerydb-node');
 // var brewdb = new BreweryDb('859bf6f8fdcf9f9cd2b69cdf21253a12');
@@ -55,9 +63,10 @@ app.get('/books/:keyword', function (req, res) {
     });
 });
 app.get('/goodreads', function(req, res) {
-    gr.getShelves('4085451', function(json) {
-        res.send(JSON.stringify(json));
-    });
+    // gr.getShelves('4085451', function(json) {
+    //     res.send(JSON.stringify(json));
+    // });
+
 });
   // .pipe(request.put('http://mysite.com/img.png'))
   // var data = {

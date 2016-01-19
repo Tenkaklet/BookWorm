@@ -21,6 +21,7 @@
     "express": "^4.13.3",
     "goodreads": "0.0.4",
     "google-books-search-2": "^0.3.0",
-    "request": "^2.67.0"
+    "request": "^2.67.0",
+    "simple-goodreads": "^1.0.1"
   }
 }
