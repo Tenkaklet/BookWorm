@@ -1,8 +1,20 @@
+// var http = require('http');
+// var server = http.createServer(function(req,res) {
+// 	//Set CORS
+// 	res.setHeader('Access-Control-Allow-Origin', '*');
+// 	res.writeHead(200);
+// 	res.end("Hello Cross Domain");
+// });
+//
+// server.listen(5446);
+
+
 var request = require('request');
 var express = require('express');
 var app = express();
 app.use(express.static('public'));
-
+var goodreads = require('goodreads');
+var gr = new goodreads.client({ 'key': 'wRgYbxDStUhOLSIUjCw2Uw', 'secret': 'snIrd88VBldJdTwaUEPWH3B43HPpMOFx612mY3wsrk' });
 
 // var BreweryDb = require('brewerydb-node');
 // var brewdb = new BreweryDb('859bf6f8fdcf9f9cd2b69cdf21253a12');
@@ -40,6 +52,11 @@ app.get('/books/:keyword', function (req, res) {
     })
     .catch(function(error) {
         console.log(error);
+    });
+});
+app.get('/goodreads', function(req, res) {
+    gr.getShelves('4085451', function(json) {
+        res.send(JSON.stringify(json));
     });
 });
   // .pipe(request.put('http://mysite.com/img.png'))

@@ -11,7 +11,6 @@
         <div class="col-md-6">
             <div class="" id="generalInfo">
                 <div class="genDescript">
-                    <!-- <p class="small"><strong>{{categories | noHTML}}</strong></p> -->
                     <ul class="list-inline">
                         <li ng-repeat="cat in categories"><strong>{{cat}}</strong></li>
                     </ul>
@@ -20,22 +19,34 @@
             </div>
 
             <div class="" id="specOfBook">
-                <a class="showMorebtn" ng-click="showSpecData()" ng-if="!specificBookData">{{Specifics}}</a>
-                <a class="showMorebtn" ng-click="removeSpecData()" ng-if="specificBookData">{{Specifics}}</a>
+                <a class="showMorebtn pull-left" ng-click="showSpecData()" ng-if="!specificBookData">{{Specifics}}</a>
+                <a class="showMorebtn pull-left" ng-click="removeSpecData()" ng-if="specificBookData">{{Specifics}}</a>
                 <div class="specificBookData" ng-show="specificBookData">
                     <p><strong>ISBN: </strong> {{ISBN}}</p>
                     <p class="small">{{bookType}}, {{pages}} pages</p>
                     <p class="small">{{pubDate | date: 'mediumDate'}}</p>
                     <p class="small"><a ng-href="https://en.wikipedia.org/wiki/{{author[0]}}" target="_blank">About the Author</a></p>
-                    <div class="" id="Review">
-                    </div>
                 </div>
             </div>
         </div>
     </article>
     <article class="row">
         <div class="col-md-6">
-
+            <h3 class="text-center">More books by {{author | noHTML}}</h3>
+            <ul class="list-inline">
+                <li ng-repeat="book in morebooks">
+                    <a href="#/specificBook/{{book.id}}">
+                        <img ng-src="{{book.volumeInfo.imageLinks.thumbnail}}" class="img-responsive center-block" alt="{{book.volumeInfo.title}}">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <div class="" id="Review">
+            </div>
         </div>
     </article>
 </section>
+<footer>
+    <p>Created By <a href="https://github.com/Tenkaklet">Tenkaklet</a>, using <a href="https://developers.google.com/books/?hl=en">Google Books API</a> api &amp; <a href="https://www.goodreads.com/api">Good Reads API</a></p>
+</footer>

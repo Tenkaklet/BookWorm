@@ -44,12 +44,20 @@ var app = angular.module('BookWorm')
         $scope.numOfBooks = bookData.length;
         $scope.books = bookData;
     });
+    $scope.submit = function () {
+        getBook.findBook($scope.bookTitle)
+        .then(function (response) {
+            var bookData = response.items;
+            $scope.numOfBooks = bookData.length;
+            $scope.books = bookData;
+        });
+    };
 }])
 
 .controller('specificBookController', ['$scope', '$http','$timeout', '$location','getBook','$routeParams','getID','goodReadsISBN','goodReadReview' ,'$resource',function ($scope, $http, $timeout, $location, getBook, $routeParams, getID, goodReadsISBN, goodReadReview, $resource) {
     getID.findbookId($routeParams.bookId)
     .then(function (response) {
-        console.debug(response);
+        // console.debug(response);
         var specBook = response;
         $scope.bookName = specBook.volumeInfo.title;
         $scope.author = specBook.volumeInfo.authors;
@@ -63,21 +71,23 @@ var app = angular.module('BookWorm')
         $scope.ISBN = specBook.volumeInfo.industryIdentifiers[0].identifier;
         $scope.Specifics = 'Show More';
 
+        getBook.findBook($scope.author[0])
+        .then(function (moreAuthors) {
+            console.log(moreAuthors);
+            $scope.morebooks = moreAuthors.items;
+        });
+        goodReadsISBN.getISBN($scope.ISBN)
+        .then(function (response) {
+            $scope.id = response.books[0].id;
+            goodReadReview.getReview($scope.id)
+            .then(function (review) {
+                document.getElementById('Review').innerHTML += review.reviews_widget;
+            });
+        });
+
         $scope.showSpecData = function () {
-            $http.defaults.useXDomain = true;
             $scope.specificBookData = true;
             $scope.Specifics = 'Show Less';
-            goodReadsISBN.getISBN($scope.ISBN)
-            .then(function (response) {
-                // console.log(response);
-                $scope.id = response.books[0].id;
-                // console.log($scope.id);
-                goodReadReview.getReview($scope.id)
-                .then(function (review) {
-                    document.getElementById('Review').innerHTML += review.reviews_widget;
-                    // console.log(review.reviews_widget);
-                });
-            });
         };
         $scope.removeSpecData = function () {
             $scope.specificBookData = false;

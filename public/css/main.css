@@ -53,6 +53,12 @@ header form {
     padding: 6px;
     border-radius: 3px; }
   #specificBook #specOfBook .specificBookData {
-    text-align: left; }
+    text-align: left;
+    clear: both;
+    margin-top: 20px; }
+
+footer {
+  padding: 20px;
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
